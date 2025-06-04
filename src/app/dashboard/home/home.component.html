@@ -1,0 +1,108 @@
+<!-- Encabezado -->
+<header class="d-flex justify-content-between align-items-center px-4 py-2 bg-dark text-white">
+  <div>
+    <button class="btn btn-outline-light me-2"><i class="bi bi-filter"></i></button>
+    <button class="btn btn-outline-light"><i class="bi bi-bell"></i></button>
+  </div>
+  <h5 class="mb-0">Bienvenido</h5>
+  <div class="dropdown">
+    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      <i class="bi bi-person-circle"></i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end">
+  <li><a class="dropdown-item" (click)="openModal('datos')">Editar Datos</a></li>
+  <li><a class="dropdown-item" (click)="logout()">Cerrar Sesión</a></li>
+</ul>
+
+  </div>
+</header>
+
+<!-- Barra de búsqueda -->
+<div class="search-bar d-flex justify-content-center align-items-center my-4">
+  <div class="input-group w-50">
+    <span class="input-group-text"><i class="bi bi-sliders"></i></span>
+    <input type="text" class="form-control" placeholder="¿funcionalidad?">
+    <button class="btn btn-outline-success" type="button"><i class="bi bi-search"></i></button>
+  </div>
+</div>
+
+<!--home paciente -->
+<div class="dashboard-container" *ngIf="tipoUsuario === 'Paciente'"> 
+  <!-- Tarjetas de acciones -->
+  <div class="container">
+    <div class="row justify-content-center gap-4">
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('agenda_cita')">
+        <i class="bi bi-calendar-plus display-1"></i>
+        <p>Agendar Cita</p>
+      </div>
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('mis_citas')">
+        <i class="bi bi-journal-medical display-1"></i>
+        <p>Mis citas</p>
+      </div>
+    </div>
+  </div>  
+  <app-schedule-appointment *ngIf="activeModal === 'agenda_cita'" [close]="closeModal.bind(this)"></app-schedule-appointment>
+  <app-my-appointments *ngIf="activeModal === 'mis_citas'" [close]="closeModal.bind(this)"></app-my-appointments>
+</div>
+
+<!--home medico -->
+<div class="dashboard-container" *ngIf="tipoUsuario === 'Medico'"> 
+  <!-- Tarjetas de acciones -->
+  <div class="container">
+    <div class="row justify-content-center gap-4">
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('horario')">
+        <i class="bi bi-calendar3 display-5"></i>
+        <p>Definir horario</p>
+      </div>
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('agenda')">
+        <i class="bi bi-journal-text display-5"></i>
+        <p>Ver agenda</p>
+      </div>
+      
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('proxima')">
+        <i class="bi bi-calendar-plus display-5"></i>
+        <p>Próxima Cita</p>
+      </div>
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('pacientes')">
+        <i class="bi bi-person-badge display-5"></i>
+        <p>Mis pacientes</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal: Definir horario -->
+  <app-schedule-modal *ngIf="activeModal === 'horario'" [close]="closeModal.bind(this)"></app-schedule-modal>
+  <app-view-agenda *ngIf="activeModal === 'agenda'" [close]="closeModal.bind(this)"></app-view-agenda>
+  <app-next-appointment *ngIf="activeModal === 'proxima'" [close]="closeModal.bind(this)"></app-next-appointment>
+  <app-patient-list *ngIf="activeModal === 'pacientes'" [close]="closeModal.bind(this)"></app-patient-list>
+
+</div>
+
+<!--home admin -->
+<div class="dashboard-container" *ngIf="tipoUsuario === 'Administrador'"> 
+  <!-- Tarjetas de acciones -->
+  <div class="container">
+    <div class="row justify-content-center gap-4">
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('pacientes')">
+        <i class="bi bi-person-badge display-1"></i>
+        <p>Pacientes</p>
+      </div>
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('medicos')">
+        <i class="bi bi-clipboard2-pulse display-1"></i>
+        <p>Medicos</p>
+      </div>
+      
+      <div class="col-md-2 card-option text-center shadow-sm p-3" (click)="openModal('citas')">
+        <i class="bi bi-calendar3-week display-1"></i>
+        <p>Citas</p>
+      </div>
+    </div>
+  </div>
+  <app-patients *ngIf="activeModal === 'pacientes'" [close]="closeModal.bind(this)"></app-patients>
+  <app-doctor *ngIf="activeModal === 'medicos'" [close]="closeModal.bind(this)"></app-doctor>
+  <app-appointments *ngIf="activeModal === 'citas'" [close]="closeModal.bind(this)"></app-appointments>
+</div>
+
+<!-- Modal: Editar Datos -->
+<app-edit-data *ngIf="activeModal === 'datos'" [close]="closeModal.bind(this)"></app-edit-data>

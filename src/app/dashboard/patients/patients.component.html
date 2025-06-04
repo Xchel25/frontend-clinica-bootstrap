@@ -1,0 +1,46 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Lista de Pacientes</h5>
+      <button type="button" class="btn-close btn-close-white" (click)="close()"></button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Barra de búsqueda y botón -->
+      <div class="d-flex justify-content-between mb-3">
+        <input type="text" class="form-control w-75 me-2" placeholder="Busqueda..." [(ngModel)]="busqueda">
+        <button class="btn btn-primary">Agregar Paciente</button>
+      </div>
+
+      <!-- Tabla de pacientes -->
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let paciente of pacientesFiltrados()">
+            <td>{{ paciente.nombre }}</td>
+            <td>{{ paciente.apellidos }}</td>
+            <td>{{ paciente.email }}</td>
+            <td>{{ paciente.estado }}</td>
+            <td>
+              <button class="btn btn-outline-primary rounded-circle p-2">
+                <img src="assets/img/icono.png" alt="Acción" width="30">
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" (click)="close()">Cerrar</button>
+    </div>
+  </div>
+</div>

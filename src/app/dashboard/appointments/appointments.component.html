@@ -1,0 +1,46 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Lista de Citas</h5>
+      <button type="button" class="btn-close btn-close-white" (click)="close()"></button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Barra de búsqueda y botón -->
+      <div class="d-flex justify-content-between mb-3">
+        <input type="text" class="form-control w-75 me-2" placeholder="Busqueda..." [(ngModel)]="busqueda">
+        <button class="btn btn-primary">Nueva cita</button>
+      </div>
+
+      <!-- Tabla de citas -->
+            <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citasFiltradas()">
+            <td>{{ cita.paciente }}</td>
+            <td>{{ cita.fecha }}</td>
+            <td>{{ cita.hora }}</td>
+            <td>{{ cita.estado }}</td>
+            <td>
+              <button class="btn btn-outline-primary rounded-circle p-2">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" (click)="close()">Cerrar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Definir horario</h5>
+        <button type="button" class="btn-close btn-close-white" (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="dia" class="form-label">Día</label>
+            <select class="form-select" id="dia">
+              <option selected>Lunes</option>
+              <option>Martes</option>
+              <option>Miércoles</option>
+              <option>Jueves</option>
+              <option>Viernes</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="horaInicio" class="form-label">Hora de inicio</label>
+            <input type="time" class="form-control" id="horaInicio">
+          </div>
+          <div class="mb-3">
+            <label for="horaFin" class="form-label">Hora de fin</label>
+            <input type="time" class="form-control" id="horaFin">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="close()">Cancelar</button>
+        <button class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+  

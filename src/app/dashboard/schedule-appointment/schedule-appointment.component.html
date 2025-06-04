@@ -1,0 +1,65 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agendar Cita</h5>
+        <button type="button" class="btn-close btn-close-white" (click)="close()"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="medico" class="form-label">Seleccionar Medico:</label>
+            <select class="form-select" id="medico">
+              <option selected>--</option>
+              <option>Juan Mendez</option>
+              <option>Rosio Sanchez</option>
+              <option>Toribia Santos</option>
+              <option>Ignacio Arriuta</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="fecha_disponible" class="form-label">Seleccionar Dia Disponible:</label>
+            <select class="form-select" id="fecha_disponible">
+              <option selected>--</option>
+              <option>Lunes</option>
+              <option>Martes</option>
+              <option>Viernes</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="hora" class="form-label">Seleccionar Horaio Disponible:</label>
+            <select class="form-select" id="hora_disponible">
+              <option selected>--</option>
+              <option>8-9</option>
+              <option>10-11</option>
+              <option>11-12</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Motivo de consulta</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div>
+            <p>Recordatorio:</p>
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+            <label class="form-check-label" for="radioDefault1">Todos los días</label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
+            <label class="form-check-label" for="radioDefault2">24 horas antes</label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3" checked>
+            <label class="form-check-label" for="radioDefault3">No necesito un recordatorio</label>
+            </div>
+          </div>
+            
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="close()">Cancelar</button>
+        <button class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+  

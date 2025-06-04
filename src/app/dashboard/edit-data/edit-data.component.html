@@ -1,0 +1,30 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Datos Personales</h5>
+      <button type="button" class="btn-close btn-close-white" (click)="close()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="row g-3">
+        <div class="col-md-6"><label>Nombre:</label><input class="form-control" type="text"></div>
+        <div class="col-md-6"><label>Apellido Paterno:</label><input class="form-control" type="text"></div>
+        <div class="col-md-6"><label>Apellido Materno:</label><input class="form-control" type="text"></div>
+        <div class="col-md-6"><label>Correo:</label><input class="form-control" type="email"></div>
+        <div class="col-md-6"><label>Teléfono:</label><input class="form-control" type="tel"></div>
+        <div class="col-md-6"><label>Fecha Nacimiento:</label><input class="form-control" type="date"></div>
+        <div class="col-md-12"><label>Dirección:</label><input class="form-control" type="text"></div>
+        <div class="col-md-12">
+          <label>Género:</label>
+          <div>
+            <label><input type="radio" name="genero"> Masculino</label>
+            <label class="ms-3"><input type="radio" name="genero"> Femenino</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" (click)="close()">Cancelar</button>
+      <button class="btn btn-primary">Guardar</button>
+    </div>
+  </div>
+</div>
